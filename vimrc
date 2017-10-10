@@ -58,6 +58,7 @@ let g:qfenter_keymap.topen = ['<Leader><Tab>']
 
 " Misc vim settings
 set mouse=r
+set expandtab
 set smartindent
 set tabstop=4
 set number
