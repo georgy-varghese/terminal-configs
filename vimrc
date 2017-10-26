@@ -17,7 +17,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'yssl/QFEnter'
+Plugin 'powerline/powerline'
 Plugin 'jinja'
+Plugin 'jpalardy/vim-slime'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,6 +41,10 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-space>
+let g:slime_target = "tmux"
+
 syntax enable
 
 let g:syntastic_always_populate_loc_list = 1
@@ -55,6 +61,12 @@ let g:qfenter_keymap.vopen = ['<Leader><CR>']
 let g:qfenter_keymap.hopen = ['<Leader><Space>']
 let g:qfenter_keymap.topen = ['<Leader><Tab>']
 
+" Powerline
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
+set laststatus=2
+set showtabline=2
+set noshowmode
+
 
 " Misc vim settings
 set mouse=r
@@ -67,6 +79,8 @@ set ai
 set splitbelow
 set splitright
 set clipboard=unnamedplus
+set pastetoggle=<C-F>
+
 
 let g:netrw_altv = 1
 let g:netrw_banner = 0
