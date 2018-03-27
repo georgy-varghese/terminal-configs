@@ -17,12 +17,17 @@ Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'yssl/QFEnter'
-Plugin 'powerline/powerline'
 Plugin 'jinja'
 Plugin 'jpalardy/vim-slime'
-Plugin 'jamessan/vim-gnupg'  
+Plugin 'jamessan/vim-gnupg'
 Plugin 'chriskempson/base16-vim'
 Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'pearofducks/ansible-vim'
+Plugin 'lepture/vim-jinja'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'neomake/neomake'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -38,6 +43,14 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" Neomake settings
+" When writing a buffer.
+call neomake#configure#automake('w')
+" When writing a buffer, and on normal mode changes (after 750ms).
+call neomake#configure#automake('nw', 750)
+" When reading a buffer (after 1s), and when writing.
+call neomake#configure#automake('rw', 1000)
 
 " Syntastic recommended settings
 set statusline+=%#warningmsg#
@@ -106,11 +119,20 @@ hi NonText ctermbg=none
 let g:GPGFilePattern = '*.\(gpg\|gpgenc\|asc\|pgp\)'
 let g:GPGPreferArmor = 1
 
-" Powerline
-set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
-set laststatus=2
-set showtabline=2
-set noshowmode
+"" Powerline
+"set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
+"set laststatus=2
+"set showtabline=2
+"set noshowmode
+
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_powerline_fonts = 1
+set t_Co=256
+"let g:airline_solarized_bg='dark'
 
 " Misc vim settings
 "set background=dark
@@ -131,15 +153,25 @@ set pastetoggle=<C-F>
 " markdown fold
 set cursorline
 
+" ansible-vim
+let g:ansible_unindent_after_newline = 1
+let g:ansible_extra_syntaxes = "jinja.vim"
+let g:ansible_attribute_highlight = "ob"
+let g:ansible_name_highlight = 'd'
+let g:ansible_normal_keywords_highlight = 'Constant'
+let g:ansible_with_keywords_highlight = 'Constant'
+
 augroup syntax
     au!
     " markdown
     au FileType markdown setlocal shiftwidth=2 tabstop=2
     au! BufRead,BufNewFile *.txt       set filetype=markdown
     " ansible, yaml and jinja
+"    au BufRead,BufNewFile *.yml set filetype=ansible
     au FileType yaml setlocal shiftwidth=2 tabstop=2
-    au BufNewFile,BufRead *.j2 set filetype=jinja
-    au BufNewFile,BufRead *.tpl set filetype=jinja
+"    au BufNewFile,BufRead *.j2 set filetype=jinja
+"    au BufNewFile,BufRead *.yml.j2 set filetype=jinja
+"    au BufNewFile,BufRead *.tpl set filetype=jinja
     au BufNewFile,BufRead *.json.j2 setlocal shiftwidth=2 tabstop=2
     au BufNewFile,BufRead *.json setlocal shiftwidth=2 tabstop=2
     au BufNewFile,BufRead *.yml.j2 setlocal shiftwidth=2 tabstop=2
