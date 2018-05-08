@@ -1,101 +1,45 @@
-!URxvt.font: xft:inconsolata for Powerline-13:size=16
-!urxvt*font: xft:Inconsolata:pixelsize=16,xft:Inconsolata\ for\ Powerline:pixelsize=16
-URxvt*font: xft:Inconsolata\ for\ Powerline:pixelsize=18:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
-URxvt.scrollBar: false
-URxvt.letterSpace: -1
+!! Appearance
 URxvt*termName: rxvt-256color
+URxvt.scrollBar: false
 URxvt.reverseVideo: True
-URxvt.urlLauncher: opera
-URxvt.matcher.button: 1
-!URxvt.scrollstyle: plain
-URxvt.borderColor: #000030
+URxvt.scrollstyle: plain
+!URxvt.borderColor: #000030
 URxvt.internalBorder: 1
-URxvt.saveLines: 4095
+urxvt*depth: 32
+
+!! Fonts
+!URxvt.font: xft:inconsolata for Powerline-12:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=15:antialias=true:hinting=true
+URxvt.font: xft:FantasqueSansMono-11:antialias=true:hinting=true
+!URxvt.font: xft:Source\ Code\ Pro\ Medium-10:antialias=true:hinting=true
+!URxvt*font: xft:Inconsolata\ for\ Powerline:pixelsize=15:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=15:antialias=true:hinting=true
+!URxvt.letterSpace: -1
+
+!! History Limit
+URxvt.saveLines: 1000000
+
+!! Transparency
+URxvt.transparent: true
+URxvt.shading: 10
+
+!! Dynamic Sizing
+URxvt.perl-ext-common: ...,font-size
+URxvt.keysym.Control-Shift-Up:     perl:font-size:increase
+URxvt.keysym.Control-Shift-Down:   perl:font-size:decrease
+URxvt.keysym.Control-Shift-equal:  font-size:reset
+!! disable keycap picture insert mode
 URxvt.iso14755: false
 URxvt.iso14755_52: false
-URxvt.perl-ext:
-URxvt.perl-ext-common:
-PS1='\[\033[00;32m\]\u\[\033[00;33m\]@\[\033[00;32m\]\h\[\033[01;30m\]:\[\033[01;36m\]\w\[\033[01;37m\]$ \[\033[00m\]'
-! Low contrast theme, based on Zenburn <http://slinky.imukuppi.org/zenburnpage/>
-! ! Modified from <https://gist.github.com/564084>
-!URxvt.foreground:       #0c0c0c
-!URxvt.color0:           #3f3f3f
-!URxvt.color1:           #705050
-!URxvt.color2:           #00b45a
-!URxvt.color3:           #dfcf8f
-!URxvt.color4:           #506070
-!URxvt.color5:           #dc8cc3
-!URxvt.color6:           #8cd0d3
-!URxvt.color7:           #dcdccc
-!URxvt.color8:           #709080
-!URxvt.color9:           #cc5454
-!URxvt.color10:          #4d9f4d
-!URxvt.color11:          #f0dfaf
-!URxvt.color12:          #4186be
-!URxvt.color13:          #ec93d3
-!URxvt.color14:          #93e0e3
-!URxvt.color15:          #ffffff
-!! Keycode fixes for Ctrl+direction in Vim
-!!URxvt.keysym.C-Up:     \033[1;5A
-!!URxvt.keysym.C-Down:   \033[1;5B
-!!URxvt.keysym.C-Right:  \033[1;5C
-!!URxvt.keysym.C-Left:   \033[1;5D
-!!URxvt.keysym.C-Prior:  \033[5;5~
-!!URxvt.keysym.C-Next:   \033[6;5~
-!!URxvt.keysym.C-Home:   \033[7;5~
-!!URxvt.keysym.C-End:    \033[8;5~
 
-!! Base16 Default Dark
-!! Scheme: Chris Kempson (http://chriskempson.com)
-!
-!#define base00 #181818
-!#define base01 #282828
-!#define base02 #383838
-!#define base03 #585858
-!#define base04 #b8b8b8
-!#define base05 #d8d8d8
-!#define base06 #e8e8e8
-!#define base07 #f8f8f8
-!#define base08 #ab4642
-!#define base09 #dc9656
-!#define base0A #f7ca88
-!#define base0B #a1b56c
-!#define base0C #86c1b9
-!#define base0D #7cafc2
-!#define base0E #ba8baf
-!#define base0F #a16946
-!
-!*foreground:   base05
-!#ifdef background_opacity
-!*background:   [background_opacity]base00
-!#else
-!*background:   base00
-!#endif
-!*cursorColor:  base05
-!
-!*color0:       base00
-!*color1:       base08
-!*color2:       base0B
-!*color3:       base0A
-!*color4:       base0D
-!*color5:       base0E
-!*color6:       base0C
-!*color7:       base05
-!
-!*color8:       base03
-!*color9:       base08
-!*color10:      base0B
-!*color11:      base0A
-!*color12:      base0D
-!*color13:      base0E
-!*color14:      base0C
-!*color15:      base07
-!
-!! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
-!! use 'shell' template to set these if necessary
-!*color16:      base09
-!*color17:      base0F
-!*color18:      base01
-!*color19:      base02
-!*color20:      base04
-!*color21:      base06
+!! Shell
+export PS1='\[\033[00;32m\]\u\[\033[00;33m\]@\[\033[00;32m\]\h\[\033[01;30m\]:\[\033[01;36m\]\w\[\033[01;37m\]$ \[\033[00m\]'
+
+!! Perl extensions
+!urxvt.perl-ext-common: default,matcher,font-size
+!! Open urls in browser with Control-Click
+!urxvt.urlLauncher: /usr/bin/firefox
+!urxvt.matcher.button: C1
+!! Change font size on Control-Plus/Minus
+
+!! ColourScheme
+!! Use base16-shell and base16-vim plugin
+!! https://blog.browntreelabs.com/base-16-shell-and-why-its-so-awsome/
