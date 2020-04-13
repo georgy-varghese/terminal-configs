@@ -10,7 +10,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Plugins
 Plug 'tpope/vim-fugitive'
 Plug 'hdima/python-syntax'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'tmhedberg/SimpylFold'
 Plug 'yssl/QFEnter'
